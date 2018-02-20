@@ -16,7 +16,7 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
         
         let f1 = LZFraction(num: -2, den: 3)
-        let f2 = LZFraction(num: 4, den: 6)
+        let f2 = LZFraction(num: 8, den: 12)
         
         if f1 == f2 {
             print ("true")
