@@ -9,11 +9,13 @@
 import Foundation
 
 
-public struct LZFraction: CustomStringConvertible, Equatable {
+public struct LZFraction: CustomStringConvertible, Comparable {
     
+    private var num: Int
+    private var den: Int
     
-    public var num: Int
-    public var den: Int
+    public var numerator:Int {return num}
+    public var denominator:Int {return den}
 
     public init(num:Int, den:Int) {
         let gcd = LZFraction.gcd(a: num, b: den)
@@ -21,14 +23,14 @@ public struct LZFraction: CustomStringConvertible, Equatable {
         self.den = den / gcd
     }
     
-    
+    //MARK:- HELP FUNCTIONS
     private static func gcd(a: Int, b: Int) -> Int {
         if b == 0 { return a }
         return gcd(a: b, b: a % b)
     }
     
     
-    //MARK:- PRINTABLE PROTOCOL
+    //MARK:- CUSTOM STRING CONVERTIBLE PROTOCOL
     public var description: String {
         if num == 0 { return "0" }
         if abs(den) == 1 { return "\(num * den)" }
@@ -37,7 +39,7 @@ public struct LZFraction: CustomStringConvertible, Equatable {
         return ("\(sign) \(abs(num))/\(abs(den))")
     }
     
-    
+    //MARK: OPERATORS OVERLOADING
     public static func + (left: LZFraction, right: LZFraction) -> LZFraction {
         return LZFraction(num:left.num * right.den + left.den * right.num, den:left.den * right.den)
     }
@@ -54,12 +56,18 @@ public struct LZFraction: CustomStringConvertible, Equatable {
         return LZFraction(num: 1, den: 1)
     }
     
+    //MARK: OTHER MATH METHODS FOR FRACTIONS
+    
     //TODO: develop other math operations for fractions
     
     
-    
-    
+    //MARK:- COMPARABLE PROTOCOL
+   
     public static func == (left: LZFraction, right: LZFraction) -> Bool {
         return (left.num * right.den == left.den * right.num)
+    }
+ 
+    public static func < (left: LZFraction, right: LZFraction) -> Bool {
+        return (left.num * right.den < left.den * right.num)
     }
 }
