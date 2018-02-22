@@ -15,7 +15,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        let f1 = LZFraction(num: 2, den: 3)
+        let f1 = LZFraction(num: 2, den: 0)
         let f2 = LZFraction(num: 4, den: 5)
         
         
@@ -25,7 +25,7 @@ class ViewController: UIViewController {
             print ("false")
         }
     
-        
+        print (f1+f2)
       
         
     }
