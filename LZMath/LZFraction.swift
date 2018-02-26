@@ -45,7 +45,7 @@ public struct LZFraction: CustomStringConvertible, Comparable {
     //MARK:- CUSTOM STRING CONVERTIBLE PROTOCOL
     public var description: String {
         if num == 0 { return "0" }
-        if den == 0 { return "infinite"}
+        if den == 0 { return "∞"}
         if abs(den) == 1 { return "\(num * den)" }
        // if abs(den) == 0 { return "\(num / den)"}
         let sign = self.isNegative() ? "-" : ""

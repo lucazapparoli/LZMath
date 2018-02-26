@@ -17,6 +17,7 @@ class ViewController: UIViewController {
         
         let f1 = LZFraction(num: 2, den: 0)
         let f2 = LZFraction(num: 4, den: 5)
+        let f3 = LZFraction(num: 9, den: 2)
         
         
         if f1 > f2 {
@@ -25,8 +26,20 @@ class ViewController: UIViewController {
             print ("false")
         }
     
-        print (f1+f2)
-      
+        
+        let array = [f1,f2,f3]
+        
+        let new = array.map { (f) -> LZFraction in
+            return (f * f)
+        }
+        
+        print(0.factorial())
+        print(1.factorial())
+        print(2.factorial())
+        print(3.factorial())
+        
+     
+       
         
     }
 

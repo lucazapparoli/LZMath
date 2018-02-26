@@ -55,21 +55,7 @@ public struct LZComplex: CustomStringConvertible, Equatable {
         self.init(0,0)
     }
    
-    //MARK:- PRINTABLE PROTOCOL
-    public var description: String {
-        var sign = "+"
-        var i = self.i
-        if self.i < 0.0 {
-            sign = "-"
-            i = -self.i
-        }
-        
-        if i != 0 {
-        return "\(r) \(sign) i \(i)"
-        } else {
-            return "\(r)"
-        }
-    }
+   
     
     //MARK: - MAIN METHODS
     
@@ -106,11 +92,29 @@ public struct LZComplex: CustomStringConvertible, Equatable {
     }
     
     
-    // MARK: - OPERATORS OVERLOADING
+    //MARK:- PRINTABLE PROTOCOL
+    public var description: String {
+        var sign = "+"
+        var i = self.i
+        if self.i < 0.0 {
+            sign = "-"
+            i = -self.i
+        }
+        
+        if i != 0 {
+            return "\(r) \(sign) i \(i)"
+        } else {
+            return "\(r)"
+        }
+    }
+    
+    // MARK: - EQUATABLE PROTOCOL
     
     public static func == (left: LZComplex, right: LZComplex) -> Bool {
         return (left.r == right.r) && (left.i == right.i)
     }
+    
+    // MARK: - OPERATORS OVERLOADING
     
     public static func + (left: LZComplex, right: LZComplex) -> LZComplex {
         return LZComplex(left.r + right.r, left.i + right.i)
