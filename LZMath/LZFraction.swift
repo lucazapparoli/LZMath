@@ -23,7 +23,7 @@ public struct LZFraction: CustomStringConvertible, Comparable {
         self.den = den / gcd
     }
     
-    public init(int:Int) {
+    public init(_ int:Int) {
         self.init(num: int, den: 1)
     }
     
